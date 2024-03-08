@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .square-box {
+            min-width: 600px;
+            min-height: 600px;
+            border: 1px solid black
+        }
+
+        .contentBox {
+            min-width: 100px;
+            min-height: 20px;
+            border: 1px solid black;
+            padding: 10px;
+
+        }
+
+        .image {
+            display: block;
+            width: 100%;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #008CBA;
+        }
+
+        .caption {
+            font-size: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+        }
+
+        .text {
+            font-size: 2rem;
+        }
+
+        .href-text {
+            font-size: 2rem;
+            text-decoration: none;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/132aaebcee.js" crossorigin="anonymous"></script>
+    <title>
+        <%=title %>
+    </title>
+</head>
+
+<body>

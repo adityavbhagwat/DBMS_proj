@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs',{title:"Admin Login"}) %>
+    <div class="row mt-5 pt-5">
+        <div class="col-md-3 m-auto">
+            <div class="card card-body text-center">
+                <h1><i class="fa-solid fa-user-tie"></i></h1>
+                <p class="h5 pb-3">Admin Login</p>
+                <form action="/adminLogin" class="form-group" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="adminUsername" placeholder="Enter Admin Username"
+                            name="adminUsername">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="adminPassword"
+                            placeholder="Enter Admin Password" name="adminPassword">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs')%>

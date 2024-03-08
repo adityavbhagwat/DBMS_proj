@@ -1,0 +1,82 @@
+<%- include('./partials/header.ejs',{title:"Dashboard"}) %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand border contentBox" href="#">
+            ADMIN
+        </a>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/companiesAdminView">Companies <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/newCompany">Add New Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <a class="navbar-brand" href="/logout">
+                    LogOut <i class="fa-solid fa-door-open "></i>
+                </a>
+
+            </span>
+        </div>
+    </nav>
+
+    <div class="row mt-5 pt-5">
+        <div class="col-md-3 m-auto">
+            <div class="card card-body text-center" )>
+                <%- include('./partials/messages.ejs') %>
+                    <h1><i class="fa-solid fa-user pb-3"></i></h1>
+                    <p class="h5 pb-3">New Company Registeration</p>
+                    <form action="/newCompany" class="form-group" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="companyName" placeholder="Enter Company Name"
+                                name="companyName" value="<%= typeof companyName !== 'undefined' ? companyName : '' %>">
+
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Company Email"
+                                name="companyEmail"
+                                value="<%= typeof companyEmail !== 'undefined' ? companyEmail : '' %>">
+                        </div>
+                        <div class="form-group">
+                            <select id="inputState" class="form-control" name="companyBranch"
+                                value="<%= typeof companyBranch !== 'undefined' ? companyBranch : '' %>">
+                                <option selected>Choose Branch...</option>
+                                <option value="CS">Computer Science (CS)</option>
+                                <option value="CH">Chemical (CH)</option>
+                                <option value="CV">Civil (CV)</option>
+                                <option value="EE">Electrical and Electronics (EE)</option>
+                                <option value="EC">Electronics and Communication (EC)</option>
+                                <option value="IT">Information Technology (IT)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="inputState" class="form-control" name="companySalary"
+                                value="<%= typeof companySalary !== 'undefined' ? companySalary : '' %>">
+                                <option selected>Choose Salary...</option>
+                                <option value="1">1-5L</option>
+                                <option value="2">5-10L</option>
+                                <option value="3">20-25L</option>
+                                <option value="4">>25L</option>
+                            </select>
+                        </div>
+                        <div class="form-outline form-group">
+                            <textarea class="form-control" rows="8" placeholder="Enter Company Description"
+                                name="companyDescription"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="file" class="form-control" placeholder="Submit Company Image"
+                                name="companyImage" enctype="multipart/form-data"
+                                value="<%= typeof companyImage !== 'undefined' ? companyImage : '' %>">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Register Company!</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs')%>

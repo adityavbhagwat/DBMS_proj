@@ -1,0 +1,26 @@
+<%- include('./partials/header.ejs',{title:"Welcome"}) %>
+    <style>
+        body {
+            background-image: url('login.jpg');
+            overflow: hidden;
+        }
+
+        .maincontent {
+            border-radius: 10px;
+            padding-top: 15rem;
+        }
+    </style>
+
+    <body>
+        <div class="row mt-5 pt-5">
+            <div class="col-md-3 m-auto maincontent">
+                <div class="card card-body text-center">
+                    <h1><i class="fa-solid fa-users"></i></h1>
+                    <p class="h5 pb-3">Choose Login Type</p>
+                    <a href="/adminLogin" class="btn btn-primary btn-block mb-2 btn-lg">Admin Login</a>
+                    <a href="/studentLogin" class="btn btn-secondary btn-block btn-lg">Student Login</a>
+                </div>
+            </div>
+        </div>
+
+        <%- include('./partials/footer.ejs')%>

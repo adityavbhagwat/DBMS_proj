@@ -1,0 +1,104 @@
+<%- include('./partials/header.ejs',{title:"Dashboard"}) %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <!--
+<-%if(admin){ %>
+                    <-%if(admin.isAdmin===true ) {%>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/companiesAdminView">
+                                Companies <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/newCompany">
+                                Add New Company
+                            </a>
+                        </li>
+                        <-%} else{ %>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/companies">
+                                    Companies <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/alumniAdvice">
+                                    Alumni Advice
+                                </a>
+                            </li>
+
+                            <-% }%>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <-%}else{ %>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/companies">
+                                            Companies <span class="sr-only"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/newCompany">
+                                            Alumni Advice
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            Contact Us
+                                        </a>
+                                    </li>
+                                    <-% }%>
+
+            </ul>
+            <span class="navbar-text">
+                <a class="navbar-brand" href="/logout">
+                    LogOut <i class="fa-solid fa-door-open "></i>
+                </a>
+
+            </span>
+        </div>
+    </nav>
+
+            <-% if(admin.isAdmin===true ) {%>
+
+-->
+                <li class="nav-item active">
+                    <a class="nav-link" href="/companies">
+                        Companies <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Alumni Advice
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        Contact Us
+                    </a>
+                </li>
+
+
+            </ul>
+            <span class="navbar-text">
+                <a class="navbar-brand" href="/logout">
+                    LogOut <i class="fa-solid fa-door-open "></i>
+                </a>
+
+            </span>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1>IRIS- Career Development Cell</h1>
+            <h3>Welcome, <%=user.studentName%> (<%=user.studentRollNum %>)
+            </h3>
+        </div>
+    </div>
+    <%- include('./partials/footer.ejs')%>
