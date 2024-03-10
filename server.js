@@ -95,7 +95,7 @@ connection.connect((err) => {
             Reg_no int, 
             Dept int, 
             Company_id int,
-            PRIMARY KEY (Alumni Reg_no)
+            PRIMARY KEY (Reg_no)
         )`;
 
         connection.query(Alumni, (err, result) => {
@@ -125,7 +125,7 @@ connection.connect((err) => {
         const Results = `CREATE TABLE IF NOT EXISTS Results (
             Course_id int, 
             Student_Reg_no int,
-            Score_obtained float,
+            Score_obtained decimal(3,1)
         )`;
 
         connection.query(Results, (err, result) => {
