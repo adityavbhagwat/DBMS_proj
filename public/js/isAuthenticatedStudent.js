@@ -1,31 +1,50 @@
 // Importing the required libraries
 const bcrypt = require('bcryptjs');
-//const { Student, Company } = require('../../models/user.js');
+const mysql = require('mysql2/promise');
 
-const isAuthenticatedStudent = (studentRegNumber, password, res, admin) => {
-    Student.findOne({ _id: studentRegNumber })
-        .then(user => {
-            // User Exists
-            if (user) {
-                bcrypt.compare(password, user.studentPassword, (err, isMatch) => {
-                    console.log(user);
-                    // Error
-                    if (err) return 0
-                    // , { user, admin })
-                    if (isMatch) {
+const isAuthenticatedStudent = async (studentRegNumber, password, res) => {
 
-                        res.render('dashboard', { user });
+        const pool = mysql.createPool({
+            host: 'localhost',
+            user: 'root',
+            password: 'sunil',
+            database: 'dbmsproj',
+        });
 
-                    } else {
-                        console.log("User Not Authenticated");
-                        res.render('student');
-                    }
-                })
-            } else {
+        const connection = await pool.getConnection();
+
+        try{
+            const student = await connection.execute(`SELECT * FROM Student WHERE Reg_no = ${studentRegNumber}`);
+
+            if(student == null){
                 console.log("User Not Found");
-                res.render('student');
+            }else{
+                console.log(student[0][0].Password)
+                console.log(password)
+
+                if (student[0][0].Password === password) {
+                    res.render('dashboard', { student });
+                }
+                else{
+                    console.log("User Not Authenticated");
+                    res.render('student');
+                }
+                // bcrypt.compare(password, student[0][0].Password, (err, isMatch) => {
+                //     if (err) return 0
+                //     if (isMatch) {
+                //         res.render('dashboard', { student });
+                //     } else {
+                //         console.log("User Not Authenticated");
+                //         res.render('student');
+                //     }
+                // })
             }
-        })
+            connection.release();
+           
+            
+        }catch(err){
+            console.log(err);
+        }
 
 }
 

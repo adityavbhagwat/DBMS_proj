@@ -1,7 +1,7 @@
 // Importing required libraries
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const mainRoute = require('./routes/main');
 
@@ -28,13 +28,12 @@ connection.connect((err) => {
             Password varchar(50),
             Name varchar(50),
             Email varchar(50),
-            CGPA float,
+            CGPA decimal(3,1),
             Credits_Obtained int,
             Fee_Paid boolean,
             Semester int,
             Department_id int,
-            PRIMARY KEY (Reg_no),
-            FOREIGN KEY (Department_id) REFERENCES Department(Department_id)
+            PRIMARY KEY (Reg_no)
         )`;
         
         connection.query(Student, (err, result) => {

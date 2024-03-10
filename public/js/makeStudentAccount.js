@@ -1,18 +1,18 @@
 // Importing required libraries
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 //const { Student } = require('../../models/user.js');
 const bcrypt = require('bcryptjs');
 const sendMail = require('./mailStudentEmail.js')
 
 // Connecting to mongoose
-mongoose.connect('mongodb://127.0.0.1:27017/irisWeb')
-    .then(() => {
-        console.log("DATABASE CONNECTED");
-    })
-    .catch(err => {
-        console.log("COULD NOT CONNECT DATABASE");
-        console.log(err);
-    })
+// mongoose.connect('mongodb://127.0.0.1:27017/irisWeb')
+//     .then(() => {
+//         console.log("DATABASE CONNECTED");
+//     })
+//     .catch(err => {
+//         console.log("COULD NOT CONNECT DATABASE");
+//         console.log(err);
+//     })
 
 // Making the student account
 const makeStudentAccount = async (studentName, studentEmail, studentBranch, studentPassword, res, req) => {

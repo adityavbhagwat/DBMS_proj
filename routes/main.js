@@ -4,7 +4,16 @@ const registerAuth = require('../public/js/registerAuth');
 const isAuthenticatedStudent = require('../public/js/isAuthenticatedStudent');
 const registerNewCompany = require('../public/js/registerNewCompany');
 const multer = require('multer');
+const mysql = require('mysql2/promise');
 //const { Student, Company } = require('../models/user');
+
+const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: 'sunil',
+    database: 'dbmsproj'
+});
+
 
 // Multer Storage
 let Storage = multer.diskStorage({
@@ -39,14 +48,17 @@ router.get('/studentLogin', (req, res) => {
 })
 
 // Student Login Post
-router.post('/studentLogin', (req, res) => {
+router.post('/studentLogin', async (req, res) => {
     const { studentRegNumber, studentRegPassword } = req.body;
-    Student.find({ isAdmin: false })
-        .then(student => {
-            if (student) {
-                isAuthenticatedStudent(studentRegNumber, studentRegPassword, res, false);
-            }
-        })
+
+    try{
+        // const connection = await pool.getConnection();
+        // const student = await connection.execute(`SELECT * FROM Student WHERE Reg_no = ${studentRegNumber}`);
+        // connection.release();
+        isAuthenticatedStudent(studentRegNumber, studentRegPassword, res);
+    }catch(err){
+        console.log(err);
+    }
 
 })
 
