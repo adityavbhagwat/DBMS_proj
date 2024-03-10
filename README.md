@@ -1,25 +1,21 @@
-# IRIS_Rec23_221CS252_Express
+# DBMS Project(2023-2024)
 
 <h1> INSTALLATION STEPS:</h1>
 
 - First install mongodb to serve as the database,
 - Refer : https://www.mongodb.com/docs/manual/installation/ (based on Operating System)
-- git clone https://github.com/Cioraz/IRIS_Rec23_221CS252_Express / download the code as zip and unzip it on your systems prefered location.
+- git clone https://github.com/Cioraz/DBMS_proj download the code as zip and unzip it on your systems prefered location.
 - Open this folder, 
 - now install npm, Refer (google)
+- ```npm install --save-dev nodemon ``` ( to run the server.js file which showcases the main app )
 - After npm is installed, type the following into the terminal where the file structure is present,
-- npm i bcryptjs ejs express mongoose multer nodemailer
+- ``` npm install ``` inside the DBMS_proj folder which has been just cloned.
+- Finally type ```nodemon server.js ```( to run the main file )
   
-Now type the following on the terminal again
-- mongod ( to connect to mongo shell)
-- mongosh (to go into the mongo shell)
-- use irisWeb;
-- db.createCollection('students');
-- db.students.insert({studentName:"%AdMiN",studentPassword:"1029",isAdmin:true}) // To create the admin user, in the real app we can use the iris servers to get this data but here im just forcefully inserting into the database using terminal
-- npm install --save-dev nodemon ( to run the server.js file which showcases the main app )
-- Refer for nodemon : https://www.youtube.com/watch?v=4N0d8HhU5DE&t=107s
-- Finally, type on terminal 
-- nodemon server.js ( to run the main file )
+Now go to your MYSQL shell on terminal and login to it
+- Type ``` create database if not exists dbmsproj; ```
+- db.students.insert({studentName:"%AdMiN",studentPassword:"1029",isAdmin:true}) // To create the admin user, in the real app we can use the iris servers to get this data but here im just forcefully inserting into the database using terminal ( need to edit this still )
+
 
 <h1>LIST OF IMPLEMENTED FEATURES :</h1>
 
