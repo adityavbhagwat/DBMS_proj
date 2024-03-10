@@ -33,8 +33,7 @@ connection.connect((err) => {
         console.log("CONNECTED TO DATABASE");
 
         // Creating the table
-
-        const Student = `CREATE TABLE Student (
+        const Student = `CREATE TABLE IF NOT EXISTS Student (
             Reg_no int,
             Password varchar(50),
             Name varchar(50),
@@ -51,15 +50,12 @@ connection.connect((err) => {
         connection.query(Student, (err, result) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
-    
             } else {
-    
                 console.log("TABLE CREATED");
-    
             }
         })
 
-        const Department = `CREATE TABLE Department(
+        const Department = `CREATE TABLE IF NOT EXISTS Department(
             Department_id int,
             Department_name varchar(50),
             PRIMARY KEY (Department_id)
@@ -68,15 +64,12 @@ connection.connect((err) => {
         connection.query(Department, (err, result) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
-    
             } else {
-    
                 console.log("TABLE CREATED");
-    
             }
         })
 
-        const Companies = `CREATE TABLE Companies (
+        const Companies = `CREATE TABLE IF NOT EXISTS Companies (
             Company_id int,
             Dept_id int,
             Salary_offered float,
@@ -87,6 +80,19 @@ connection.connect((err) => {
         connection.query(Companies, (err, result) => {
             if (err) {
 	            console.log("COULD NOT CREATE TABLE");
+            } else {
+                console.log("TABLE CREATED");
+            }
+        })
+
+        const Alumni_Message = `CREATE TABLE IF NOT EXISTS Alumni_Message (
+            Reg_no int, 
+            Message varchar(200)
+        )`;
+
+        connection.query(Alumni_Message, (err, result) => {
+            if (err) {
+                console.log("COULD NOT CREATE TABLE");
 
             } else {
 
@@ -95,113 +101,82 @@ connection.connect((err) => {
             }
         })
 
-        const Alumni_Message = `CREATE TABLE Alumni_Message (
+        const Alumni = `CREATE TABLE IF NOT EXISTS Alumni (
             Reg_no int, 
-            Message varchar(200)
+            Dept int, 
+            Company_id int,
+            PRIMARY KEY (Alumni Reg_no)
         )`;
 
-            connection.query(Alumni_Message, (err, result) => {
-                if (err) {
-                    console.log("COULD NOT CREATE TABLE");
+        connection.query(Alumni, (err, result) => {
+            if (err) {
+                console.log("COULD NOT CREATE TABLE");
 
-                } else {
+            } else {
 
-                    console.log("TABLE CREATED");
+                console.log("TABLE CREATED");
 
-                }
-            })
+            }
+        })
 
-            const Alumni = `CREATE TABLE Alumni (
-                Reg_no int, 
-                Dept int, 
-                Company_id int,
-                PRIMARY KEY (Alumni Reg_no)
-            )`;
+        const Professor = `CREATE TABLE IF NOT EXISTS Professor (
+            Professor_id int, 
+            Department_id int, 
+            Name varchar(50),
+            Course_id int, 
+            PRIMARY KEY (Professor_id)
+        )`;
 
-            connection.query(Alumni, (err, result) => {
-                if (err) {
-                    console.log("COULD NOT CREATE TABLE");
+        connection.query(Professor, (err, result) => {
+            if (err) {
+                console.log("COULD NOT CREATE TABLE");
+            } else {
+                console.log("TABLE CREATED");
+            }
+        })
 
-                } else {
+        const Results = `CREATE TABLE IF NOT EXISTS Results (
+            Course_id int, 
+            Student_Reg_no int,
+            Score_obtained float,
+        )`;
 
-                    console.log("TABLE CREATED");
+        connection.query(Results, (err, result) => {
+            if (err) {
+                console.log("COULD NOT CREATE TABLE");
+            } else {
+                console.log("TABLE CREATED");
+            }
+        })
 
-                }
-            })
+        const Course_info = `CREATE TABLE IF NOT EXISTS Course_info (
+            Course_id int, 
+            Course_name varchar(50),
+            Credits int,
+            PRIMARY KEY (Course_id)
+        )`;
+    
+        connection.query(Course_info, (err, result) => {
+            if (err) {
+                console.log("COULD NOT CREATE TABLE");
+            } else {
+                console.log("TABLE CREATED");
+            }
+        })
 
-            const Professor = `CREATE TABLE Professor (
-                Professor_id int, 
-                Department_id int, 
-                Name varchar(50),
-                Course_id int, 
-                PRIMARY KEY (Professor_id)
-            )`;
-
-            connection.query(Professor, (err, result) => {
-                if (err) {
-                    console.log("COULD NOT CREATE TABLE");
-
-                } else {
-
-                    console.log("TABLE CREATED");
-
-                }
-            })
-
-            const Results = `CREATE TABLE Results (
-                Course_id int, 
-                Student_Reg_no int,
-                Score_obtained float,
-            )`;
-
-            connection.query(Results, (err, result) => {
-                if (err) {
-                    console.log("COULD NOT CREATE TABLE");
-
-                } else {
-
-                    console.log("TABLE CREATED");
-
-                }
-            })
-
-            const Course_info = `CREATE TABLE Course_info (
-                Course_id int, 
-                Course_name varchar(50),
-                Credits int,
-                PRIMARY KEY (Course_id)
-            )`;
-        
-            connection.query(Course_info, (err, result) => {
-                if (err) {
-                    console.log("COULD NOT CREATE TABLE");
-        
-                } else {
-        
-                    console.log("TABLE CREATED");
-        
-                }
-            })
-
-            const Fee_transaction = `CREATE TABLE Fee_transaction (
-                Reg_no int, 
-                Amount_paid int, 
-                Semester int
-            )`;
-        
-            connection.query(Fee_transaction, (err, result) => {
-                if (err) {
-                    console.log("COULD NOT CREATE TABLE");
-        
-                } else {
-        
-                    console.log("TABLE CREATED");
-        
-                }
-            })
-
-
-
+        const Fee_transaction = `CREATE TABLE IF NOT EXISTS Fee_transaction (
+            Reg_no int, 
+            Amount_paid int, 
+            Semester int
+        )`;
+    
+        connection.query(Fee_transaction, (err, result) => {
+            if (err) {
+                console.log("COULD NOT CREATE TABLE");
+            } else {
+                console.log("TABLE CREATED");
+            }
+        })
         }
 
 })
