@@ -3,21 +3,11 @@ const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
 
-//const mongoose = require('mongoose');
 const mainRoute = require('./routes/main');
 
 // Making the main express app
 const app = express();
 
-// Connecting to mongoose
-//mongoose.connect('mongodb://127.0.0.1:27017/irisWeb')
-//    .then(() => {
-//        console.log("DATABASE CONNECTED");
-//    })
-//    .catch(err => {
-//        console.log("COULD NOT CONNECT DATABASE");
-//        console.log(err);
-//    })
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -43,7 +33,7 @@ connection.connect((err) => {
             Fee_Paid boolean,
             Semester int,
             Department_id int,
-            PRIMARY KEY (Reg_no)
+            PRIMARY KEY (Reg_no),
             FOREIGN KEY (Department_id) REFERENCES Department(Department_id)
         )`;
     
@@ -111,11 +101,8 @@ connection.connect((err) => {
         connection.query(Alumni, (err, result) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
-
             } else {
-
                 console.log("TABLE CREATED");
-
             }
         })
 

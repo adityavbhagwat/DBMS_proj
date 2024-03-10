@@ -30,7 +30,6 @@ router.get('/', (req, res) => {
 
 // Dashboard
 router.get('/dashboard', (req, res) => {
-
     res.render('dashboard');
 })
 
