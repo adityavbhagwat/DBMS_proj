@@ -36,7 +36,7 @@ connection.connect((err) => {
             PRIMARY KEY (Reg_no),
             FOREIGN KEY (Department_id) REFERENCES Department(Department_id)
         )`;
-    
+        
         connection.query(Student, (err, result) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
