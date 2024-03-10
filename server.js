@@ -36,12 +36,12 @@ connection.connect((err) => {
             PRIMARY KEY (Reg_no),
             FOREIGN KEY (Department_id) REFERENCES Department(Department_id)
         )`;
-    
+        
         connection.query(Student, (err, result) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("STUDENT TABLE CREATED");
             }
         })
 
@@ -55,7 +55,7 @@ connection.connect((err) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("DEPARTMENT TABLE CREATED");
             }
         })
 
@@ -71,7 +71,7 @@ connection.connect((err) => {
             if (err) {
 	            console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("COMPANIES TABLE CREATED");
             }
         })
 
@@ -86,7 +86,7 @@ connection.connect((err) => {
 
             } else {
 
-                console.log("TABLE CREATED");
+                console.log("ALUMNI MESSAGE TABLE CREATED");
 
             }
         })
@@ -102,7 +102,7 @@ connection.connect((err) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("ALUMNI TABLE CREATED");
             }
         })
 
@@ -118,7 +118,7 @@ connection.connect((err) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("PROFESSOR TABLE CREATED");
             }
         })
 
@@ -132,7 +132,7 @@ connection.connect((err) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("RESULTS TABLE CREATED");
             }
         })
 
@@ -147,7 +147,7 @@ connection.connect((err) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("COURSE INFO TABLE CREATED");
             }
         })
 
@@ -161,7 +161,7 @@ connection.connect((err) => {
             if (err) {
                 console.log("COULD NOT CREATE TABLE");
             } else {
-                console.log("TABLE CREATED");
+                console.log("FEE TRANSACTION TABLE CREATED");
             }
         })
         }
