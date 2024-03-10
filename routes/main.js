@@ -4,7 +4,7 @@ const registerAuth = require('../public/js/registerAuth');
 const isAuthenticatedStudent = require('../public/js/isAuthenticatedStudent');
 const registerNewCompany = require('../public/js/registerNewCompany');
 const multer = require('multer');
-const { Student, Company } = require('../models/user');
+//const { Student, Company } = require('../models/user');
 
 // Multer Storage
 let Storage = multer.diskStorage({

@@ -1,6 +1,6 @@
 // Importing the required libraries
 const bcrypt = require('bcryptjs');
-const { Student, Company } = require('../../models/user.js');
+//const { Student, Company } = require('../../models/user.js');
 
 const isAuthenticatedStudent = (studentRegNumber, password, res, admin) => {
     Student.findOne({ _id: studentRegNumber })

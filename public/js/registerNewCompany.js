@@ -1,5 +1,5 @@
 // Main Company Registration Authentication
-const { Company } = require('../../models/user');
+//const { Company } = require('../../models/user');
 const fs = require('fs');
 
 

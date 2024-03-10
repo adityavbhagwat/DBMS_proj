@@ -1,5 +1,5 @@
 // Main User Registration Authentication
-const { Student } = require('../../models/user');
+//const { Student } = require('../../models/user');
 const makeStudentAccount = require('./makeStudentAccount');
 
 const registerAuth = (req, res) => {

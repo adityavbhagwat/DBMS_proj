@@ -1,6 +1,6 @@
 // Importing required libraries
 const mongoose = require('mongoose');
-const { Student } = require('../../models/user.js');
+//const { Student } = require('../../models/user.js');
 const bcrypt = require('bcryptjs');
 const sendMail = require('./mailStudentEmail.js')
 

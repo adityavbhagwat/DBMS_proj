@@ -22,7 +22,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'sunil', // Modify to mYSQL paswiord
-    database: 'iris' // Create a database called iris in ur mysql
+    database: 'dbmsproj' // Create a database called iris in ur mysql
 })
 
 connection.connect((err) => {
